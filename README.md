@@ -1,17 +1,41 @@
 # Miller Rabin primality test
 
-An implementation of Miller Rabin primality test written in Python
+An implementation of Miller Rabin primality test written in Python.
 
 ## Install
+
+From PyPI (not live yet)
 
 ```bash
 pip install miller_rabin
 ```
 
+From Git
+
+```bash
+pip install git+https://github.com/stephentt-me/miller_rabin_python.git
+```
+
 ## Usage
 
 ```python
-import miller_rabin
+from miller_rabin import miller_rabin
 
-miller_rabin.is_prime(15485867)  # 1000001st prime number
+# using defaut k
+miller_rabin(15485867)  # 1000001st prime number
+
+# choose your our k=5
+miller_rabin(15485867, 5)
+```
+
+## Test
+
+```
+python -m unittest
+```
+
+## Build
+
+```
+python setup.py sdist bdist_wheel
 ```
