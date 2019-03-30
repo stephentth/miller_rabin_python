@@ -39,3 +39,7 @@ python -m unittest
 ```
 python setup.py sdist bdist_wheel
 ```
+
+## License
+
+[MIT](LICENSE)
