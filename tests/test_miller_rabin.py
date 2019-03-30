@@ -27,5 +27,4 @@ class TestMillerRabin(unittest.TestCase):
         ]
 
         for num, expect in test_cases:
-            # assert miller_rabin(num, DEFAULT_TEST_K) == expect
             self.assertEqual(miller_rabin(num, DEFAULT_TEST_K), expect, f"{num} should be {expect}")
