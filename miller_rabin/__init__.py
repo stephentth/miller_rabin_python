@@ -1,4 +1,1 @@
-def is_prime(n):
-    if isinstance(n, int):
-        raise ValueError("Must an integer number")
-    return False
+from .miller_rabin import miller_rabin
