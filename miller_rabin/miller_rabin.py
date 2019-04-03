@@ -1,6 +1,7 @@
 import random
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
-def miller_rabin(n: int, k: int=3):
+def miller_rabin(n: int, k: int=3) -> bool:
     if not isinstance(n, int) and not isinstance(k, int):
         raise ValueError("Expect integer number")
 
@@ -23,4 +24,16 @@ def miller_rabin(n: int, k: int=3):
             x = x**2 % n
         else:
             return False
+    return True
+
+def miller_rabin_mutilprocess(n: int, k:int= 3) -> bool:
+    with ProcessPoolExecutor() as executor:
+        futures = []
+        for _ in range(k):
+            futures.append(executor.submit(miller_rabin, n, 1))
+        
+        for future in as_completed(futures):
+            result = future.result()
+            if result is False:
+                return False
     return True
